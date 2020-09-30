@@ -1,0 +1,55 @@
+/* has 0 specifity */
+* {
+  background-color: grey;
+	font-size: 16px; 
+	z-index: 0;
+	background-repeat: no-repeat;
+
+}
+
+
+
+h1:hover {
+  text-align: center;
+  background-color: blueviolet;
+  /* color: white; */
+  font-size: 100px;
+  width: 250px;
+}
+
+h1:hover {
+  text-align: center;
+  background-color: orange;
+  color: white;
+  font-size: 50px;
+  width: 100em;
+}
+
+[href] {
+  color: white;
+}
+
+[href]:visited {
+  color: blue;
+}
+
+/* target all <p> tags within a <div> and make the text red */
+div p {
+  color: red;
+  font-size: 2em;
+  /* font-weight: 800; */
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/* target all <div> and <p> tags on the page and make their text blue */
+div {
+  color: blue;
+  height: 400px;
+  width: 300px;
+}
+
+/* url("destination to your pciture") */
+
+div {
+  color: #afafaf;
+}
