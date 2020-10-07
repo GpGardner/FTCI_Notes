@@ -20,7 +20,7 @@ public class HelloWorld {
 		System.out.println("Ok whats your last name?");
 		String lastName = input.nextLine();
 		System.out.printf("Oh your last name is %s, eh %s!\n", lastName, firstName);
-		
+		input.close();
 
 
 	}
