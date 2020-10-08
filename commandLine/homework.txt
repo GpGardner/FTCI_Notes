@@ -1,0 +1,17 @@
+1. Build out the file paths in the image. Your root directory (folder) will be the highlighted word **directories. Every highlighted word is a new directory(folder) and the non-highlighted words are plain old files.** 
+
+- Ok I built it
+
+
+2. If I start in my root directory (in this case it is called directories). How would I navigate to the directory called food?
+
+- cd images/clipart/food
+
+3. From food, how would I navigate to Poe, EdgarAllen?
+4. How would I be able to tell the contents of Poe, EdgarAllen?
+5. Navigate to images, and use the command that will tell you the exact path of where you are. 
+6. While in images, create a folder called photographs. 
+7. Navigate to your new directory, and create a new file called sunrise. Oh, and make it a .jpg file. (Windows get a freebie here).
+8. Now move that file back one directory. 
+9. Change directories to the like folder under monkeys. Open this folder in sublime. 
+10. Bonus! Remove the bananas.html file from the like folder. 

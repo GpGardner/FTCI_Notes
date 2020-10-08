@@ -1,0 +1,35 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "java",
+			"name": "Debug (Launch) - Current File",
+			"request": "launch",
+			"mainClass": "${file}"
+		},
+		{
+			"type": "java",
+			"name": "Debug (Launch)-HelloWorld<javaIntroNotes_d6a69917>",
+			"request": "launch",
+			"mainClass": "HelloWorld",
+			"projectName": "javaIntroNotes_d6a69917"
+		},
+		{
+			"type": "java",
+			"name": "Debug (Launch)-MadLib<javaIntroNotes_d6a69917>",
+			"request": "launch",
+			"mainClass": "MadLib",
+			"projectName": "javaIntroNotes_d6a69917"
+		},
+		{
+			"type": "java",
+			"name": "Debug (Launch)-StringComparison<javaIntroNotes_d6a69917>",
+			"request": "launch",
+			"mainClass": "StringComparison",
+			"projectName": "javaIntroNotes_d6a69917"
+		}
+	]
+}
