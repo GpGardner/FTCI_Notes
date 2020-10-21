@@ -17,29 +17,33 @@
     <div class="container">
       <h1>Welcome to Our Blog Post Site!</h1>
       <h3>Check out our blogs!</h3>
+      
+      <div class="row">
+        <div th:each="item:${posts}">
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <p th:text="${item.title}" />
+              </div>
+              <div class="panel-body">
+                <p th:text="${item.author}" />
+                <p th:text="${item.blogEntry}" />
+              </div>
+              <div class="panel-footer">
+                <!-- Update -->
+                <!-- Show -->
+                <!-- Delete -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <p>Please use the form below to submit a Blog Post:</p>
-      <form action="#" th:action="@{/}" th:object="${blogPost}" method="post">
-        <table>
-          <tr>
-            <td>Title</td>
-            <td><input type="text" th:field="*{title}" /></td>
-          </tr>
-          <tr>
-            <td>Author</td>
-            <td><input type="text" th:field="*{author}" /></td>
-          </tr>
-          <tr>
-            <td>Blog Entry</td>
-            <td><input type="text" th:field="*{blogEntry}" /></td>
-          </tr>
-          <tr>
-            <td><button type="Submit">Submit Your Post</button></td>
-          </tr>
-        </table>
-      </form>
+      <a th:href="@{/blogpost/new}">
+        <button class="btn btn-primary">Create a new blog post</button>
+      </a>
+      
     </div>
-
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
