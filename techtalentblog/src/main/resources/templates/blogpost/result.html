@@ -3,40 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
-
-    <title>BlogPost Site</title>
+    <title>New Blog Post Created!</title>
   </head>
   <body>
-    <h1>Welcome to Our Blog Post Site!</h1>
-    <h3>Check out our blogs!</h3>
-
-    <p>Please use the form below to submit a Blog Post:</p>
-    <form action="#" th:action="@{/}" th:object="${blogPost}" method="post">
-      <table>
-        <tr>
-          <td>Title</td>
-          <td><input type="text" th:field="*{title}" /></td>
-        </tr>
-        <tr>
-          <td>Author</td>
-          <td><input type="text" th:field="*{author}" /></td>
-        </tr>
-        <tr>
-          <td>Blog Entry</td>
-          <td><input type="text" th:field="*{blogEntry}" /></td>
-        </tr>
-        <tr>
-          <td><button type="Submit">Submit Your Post</button></td>
-        </tr>
-      </table>
-    </form>
+    <h1>Thank you for you submission:</h1>
+    <p th:text="${title}" />
+    <p th:text="${author}" />
+    <p th:text="${blogEntry}" />
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
