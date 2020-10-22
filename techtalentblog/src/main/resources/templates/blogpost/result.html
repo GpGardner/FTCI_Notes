@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <div th:replace="fragments/styling :: headStyles"></div>
-
   </head>
   <body>
     <div th:replace="fragments/navbar :: navbar"></div>
@@ -15,11 +14,12 @@
           <h1>Thank you for you submission:</h1>
           <div class="card mb-3">
             <div class="card-header">
-              <p th:text="${title}" />
+              <h3 th:text="${title}"></h3>
             </div>
-            <p style="font-weight: bold" th:text="${author}" />
-            <p th:text="${blogEntry}" />
-            <div class="card-body"></div>
+            <div class="card-body">
+              <p th:text="${blogEntry}"></p>
+              <p style="font-weight: bold" th:text="${author}"></p>
+            </div>
           </div>
         </div>
       </div>
@@ -30,6 +30,5 @@
     </div>
 
     <div th:replace="fragments/styling :: javascripts"></div>
-
   </body>
 </html>
