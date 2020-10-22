@@ -7,21 +7,26 @@ import javax.persistence.Id;
 
 @Entity
 public class BlogPost {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	private String title;
 	private String author;
 	private String blogEntry;
-	
-	public BlogPost(){}
+
+	public BlogPost() {
+	}
 
 	public BlogPost(String title, String author, String blogEntry) {
 		this.title = title;
 		this.author = author;
 		this.blogEntry = blogEntry;
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 	public String getTitle() {
@@ -51,6 +56,6 @@ public class BlogPost {
 	@Override
 	public String toString() {
 		return "BlogPost [author=" + author + ", blogEntry=" + blogEntry + ", id=" + id + ", title=" + title + "]";
-	}	
-}
+	}
 
+}
