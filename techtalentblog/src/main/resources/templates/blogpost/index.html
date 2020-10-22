@@ -14,7 +14,7 @@
     <div class="container">
       <h1>Welcome to Our Blog Post Site!</h1>
       <div th:replace="fragments/navbar :: navbar"></div>
-      <h3>Check out our blogs!</h3>
+      <h3 class="mt-3">Check out our blogs!</h3>
 
       <div class="row d-flex justify-content-around">
 
@@ -32,7 +32,7 @@
 
             <div class="card-footer">
                 <div class="form-group">
-                  <a href="#" th:href="@{blogpost/edit/{id}(id=${blog.id})}" class="card-line btn btn-danger">Edit Post</a>
+                  <a href="#" th:href="@{blogpost/edit/{id}(id=${blog.id})}" class="card-line btn btn-info">Edit Post</a>
                   <a href="#" th:href="@{blogpost/delete/{id}(id=${blog.id})}" class="card-link btn btn-danger">Delete Post</a>
                 </div>
               </form>
