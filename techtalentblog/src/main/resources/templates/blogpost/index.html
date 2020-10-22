@@ -19,12 +19,12 @@
       <h3>Check out our blogs!</h3>
 
       <div class="row d-flex justify-content-around">
-        <div th:each="item:${posts}">
+        <div th:each="blog:${posts}">
           <div class="card col-md-6 p-0 mb-3" style="min-width: 18rem">
-            <h4 class="card-header" th:text="${item.title}"></h4>
+            <h4 class="card-header" th:text="${blog.title}"></h4>
               <div class="card-body">
-              <p class="card-text" th:text="${item.blogEntry}"></p>
-              <p class="card-text" th:text="${item.author}"></p>
+              <p class="card-text" th:text="${blog.blogEntry}"></p>
+              <p class="card-text" th:text="${blog.author}"></p>
             </div>
           </div>
             <!-- <div class="col-6">
