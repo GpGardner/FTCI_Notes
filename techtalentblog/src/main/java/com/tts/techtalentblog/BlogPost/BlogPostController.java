@@ -42,8 +42,10 @@ public class BlogPostController {
 
 	@PostMapping(value = "/blogpost")
 	public String addNewBlogPost(BlogPost blogPost, Model model) {
-
-		blogPostRepository.save(new BlogPost(blogPost.getTitle(), blogPost.getAuthor(), blogPost.getBlogEntry()));
+		//We do not want to create a new instance everytime,
+		// instead we can pass in the blogPost as is.
+		// Springboot is doing the hard work for us in the background
+		blogPostRepository.save(blogPost);
 
 		model.addAttribute("title", blogPost.getTitle());
 		model.addAttribute("author", blogPost.getAuthor());
@@ -60,7 +62,7 @@ public class BlogPostController {
 
 	// This is the mapping to edit a specific post
 	@RequestMapping(value = "/blogpost/edit/{id}")
-	public String editPostWithId(@PathVariable Long id, BlogPost blogPost, Model model) {
+	public String editPostWithId(@PathVariable Long id, Model model) {
 		// Use blogPostRepo to find post by id
 		// It returns an Optional<T>
 		// Use a variable to store the the blogPost if its there
@@ -73,13 +75,15 @@ public class BlogPostController {
 		if (editPost.isPresent()) {
 			// if the post came through, store it in result
 			result = editPost.get();
+			//add attribute to page, accessible through model
 			model.addAttribute("blogPost", result);
 		} else {
+			//Need to handle error here, you could use a html error page
 			return "Error";
 		}
 
-		// Add blogPost attribute to page
-		return "blogpost/edit";
+		// Show browser the blogpost/new page
+		return "blogpost/new";
 	}
 
 }
