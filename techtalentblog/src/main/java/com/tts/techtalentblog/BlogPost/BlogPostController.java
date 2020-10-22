@@ -2,6 +2,7 @@ package com.tts.techtalentblog.BlogPost;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,18 +44,42 @@ public class BlogPostController {
 	public String addNewBlogPost(BlogPost blogPost, Model model) {
 
 		blogPostRepository.save(new BlogPost(blogPost.getTitle(), blogPost.getAuthor(), blogPost.getBlogEntry()));
-		
+
 		model.addAttribute("title", blogPost.getTitle());
 		model.addAttribute("author", blogPost.getAuthor());
 		model.addAttribute("blogEntry", blogPost.getBlogEntry());
 		return "blogpost/result";
 	}
 
-	@RequestMapping(value = "/blogpost/{id}")
+	@RequestMapping(value = "/blogpost/delete/{id}")
 	public String deletePostWithId(@PathVariable Long id, BlogPost blogPost, Model model) {
 		blogPostRepository.deleteById(id);
 
-		return "redirect:/blogpost/new";
+		return "redirect:/";
+	}
+
+	// This is the mapping to edit a specific post
+	@RequestMapping(value = "/blogpost/edit/{id}")
+	public String editPostWithId(@PathVariable Long id, BlogPost blogPost, Model model) {
+		// Use blogPostRepo to find post by id
+		// It returns an Optional<T>
+		// Use a variable to store the the blogPost if its there
+		Optional<BlogPost> editPost = blogPostRepository.findById(id);
+
+		// Initalize a variable to be filled by the post if it exists
+		BlogPost result = null;
+
+		// use Optional method, to check if the post came through
+		if (editPost.isPresent()) {
+			// if the post came through, store it in result
+			result = editPost.get();
+			model.addAttribute("blogPost", result);
+		} else {
+			return "Error";
+		}
+
+		// Add blogPost attribute to page
+		return "blogpost/edit";
 	}
 
 }
