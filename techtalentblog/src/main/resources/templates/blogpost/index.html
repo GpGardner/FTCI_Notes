@@ -32,7 +32,8 @@
 
             <div class="card-footer">
                 <div class="form-group">
-                  <a href="#" th:href="@{blogpost/{id}(id=${blog.id})}" class="card-link btn btn-danger">Delete Post</a>
+                  <a href="#" th:href="@{blogpost/edit/{id}(id=${blog.id})}" class="card-line btn btn-danger">Edit Post</a>
+                  <a href="#" th:href="@{blogpost/delete/{id}(id=${blog.id})}" class="card-link btn btn-danger">Delete Post</a>
                 </div>
               </form>
             </div>
