@@ -11,6 +11,8 @@
 
     <div class="container">
       <h1>Create a New Blog Post</h1>
+      <!-- This form can handle new posts, or updating old posts -->
+      <!-- Saving is directed to /blogpost -->
       <form
         action="#"
         th:action="@{/blogpost}"
@@ -18,14 +20,18 @@
         method="post"
       >
         <div class="form-group">
-            
-            <input type="text" class="form-control mb-3" placeholder="Blog Title..."th:field="*{title}" />
+          <!-- Adding in hidden id attribute, if it is included -->
+          <!-- The repositorys .save method will automatically override -->
+					<input type="hidden" th:field="*{id}" />
 
-            <input type="text" class="form-control mb-3" placeholder="Your Name Here..." th:field="*{author}" />
+          <!-- The placeholders will show up if the th:field is empty -->
+          <input type="text" class="form-control mb-3" placeholder="Blog Title..."th:field="*{title}" />
 
-            <input type="text" class="form-control mb-3" placeholder="Blog Entry..." th:field="*{blogEntry}" />
+          <input type="text" class="form-control mb-3" placeholder="Your Name Here..." th:field="*{author}" />
 
-            <button type="Submit" class="btn btn-primary">Submit Your Post</button>
+          <input type="text" class="form-control mb-3" placeholder="Blog Entry..." th:field="*{blogEntry}" />
+
+          <button type="Submit" class="btn btn-primary">Submit Post</button>
 
       </form>
     </div>
