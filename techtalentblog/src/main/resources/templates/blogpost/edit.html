@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <div th:replace="fragments/styling :: headStyles"></div>
+  </head>
+  <body>
+
+    <div th:replace="fragments/navbar :: navbar"></div>
+
+    <div class="container">
+      <h1>Create a New Blog Post</h1>
+      <!-- This form can handle new posts, or updating old posts -->
+      <!-- Saving is directed to /blogpost -->
+      <form
+        action="#"
+        th:action="@{/blogpost/update/{id}(id=${blogPost.id})}"
+        th:object="${blogPost}"
+        method="post"
+      >
+        <div class="form-group">
+          <!-- Adding in hidden id attribute, if it is included -->
+          <!-- The repositorys .save method will automatically override -->
+					<input type="hidden" th:field="*{id}" />
+
+          <!-- The placeholders will show up if the th:field is empty -->
+          <input type="text" class="form-control mb-3" placeholder="Blog Title..."th:field="*{title}" />
+
+          <input type="text" class="form-control mb-3" placeholder="Your Name Here..." th:field="*{author}" />
+
+          <input type="text" class="form-control mb-3" placeholder="Blog Entry..." th:field="*{blogEntry}" />
+
+          <button type="Submit" class="btn btn-primary">Submit Post</button>
+
+      </form>
+    </div>
+
+    <div th:replace="fragments/styling :: javascripts"></div>
+
+  </body>
+</html>
