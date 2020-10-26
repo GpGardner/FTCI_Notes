@@ -11,14 +11,14 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1>Thank you for you submission:</h1>
+          <h2>Thank you for you submission:</h2>
           <div class="card mb-3">
             <div class="card-header">
-              <h3 th:text="${title}"></h3>
+              <h3 th:text="${blogPost.title}"></h3>
             </div>
             <div class="card-body">
-              <p th:text="${blogEntry}"></p>
-              <p style="font-weight: bold" th:text="${author}"></p>
+              <p th:text="${blogPost.blogEntry}"></p>
+              <p style="font-weight: bold" th:text="${blogPost.author}"></p>
             </div>
           </div>
         </div>
@@ -26,6 +26,10 @@
 
       <a th:href="@{/}">
         <button class="btn btn-success">Back to home</button>
+      </a>
+
+      <a th:href="@{/blogpost/edit/{id}(id=${blogPost.id})}">
+        <button class="btn btn-info">Edit this post</button>
       </a>
     </div>
 
