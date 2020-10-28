@@ -45,6 +45,10 @@ public class UserService {
 		return userRepository.save(user);
 	}
 
+	public User save(User user){
+		return userRepository.save(user);
+	}
+
 	public User getLoggedInUser() {
     String loggedInUsername = SecurityContextHolder.
       getContext().getAuthentication().getName();
