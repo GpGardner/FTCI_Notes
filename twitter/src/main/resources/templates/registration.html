@@ -11,11 +11,9 @@
     <div class="container">
       <div th:replace="fragments/navbar"></div>
 
-      <h2>Sign up</h2>
-
       <!-- If success was passed through show this html -->
       <div th:if="${success}">
-        <h3><span class="text-success" th:utext="${success}"></span></h3>
+        <h1><span class="text-success" th:utext="${success}"></span></h1>
         <form action="/login" method="get">
           <button
             class="btn btn-md btn-success btn-block"
@@ -30,6 +28,8 @@
       <!-- If success was passed through don't show this html -->
 
       <div th:unless="${success}">
+        <h2>Sign up</h2>
+
         <form
           th:action="@{/signup}"
           th:object="${user}"
