@@ -10,6 +10,12 @@
   </head>
   <body>
     <div class="container">
+
+      <!-- If no tweets in tweetList from tweetcontroller -->
+    <div th:if="${#lists.isEmpty(tweetList)}">
+      <h2>No Tweets here dawg!</h2>
+    </div>
+
       <div th:replace="fragments/navbar"></div>
       <h2>Tweets</h2>
       <div th:each="tweet:${tweetList}">
