@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class UserController {
-	
+
 	@Autowired
 	private UserService userService;
 
@@ -24,7 +24,7 @@ public class UserController {
 	private TweetService tweetService;
 
 	@GetMapping(value = "/users")
-	public String getUsers(Model model){
+	public String getUsers(Model model) {
 
 		List<User> users = userService.findAll();
 		User loggedInUser = userService.getLoggedInUser();
@@ -36,28 +36,29 @@ public class UserController {
 
 	}
 
-	
-
 	@GetMapping(value = "/users/{username}") // URL
-    public String getUser(@PathVariable(value = "username") String username, Model model) {
-        User loggedInUser = userService.getLoggedInUser();
-        User user = userService.findByUsername(username);
-        List<Tweet> tweets = tweetService.findAllByUser(user);
-				List<User> following = loggedInUser.getFollowing();
-				boolean isSelfPage = loggedInUser.getUsername().equals(username);
-        boolean isFollowing = false;
-        for (User followedUser : following) {
-					if (followedUser.getUsername().equals(username)) {
-						isFollowing = true;
-					}
-				}
-				
-				model.addAttribute("isSelfPage", isSelfPage);
-        model.addAttribute("following", isFollowing);
-        model.addAttribute("tweetList", tweets);
-        model.addAttribute("user", user);
-        return "user"; //HTML
-    }
+	public String getUser(@PathVariable(value = "username") String username, Model model) {
+		User loggedInUser = userService.getLoggedInUser();
+		User user = userService.findByUsername(username);
+		List<Tweet> tweets = tweetService.findAllByUser(user);
+		List<User> following = loggedInUser.getFollowing();
+		boolean isSelfPage = loggedInUser.getUsername().equals(username);
+		boolean isFollowing = false;
+		for (User followedUser : following) {
+			if (followedUser.getUsername().equals(username)) {
+				isFollowing = true;
+			}
+		}
+
+		model.addAttribute("isSelfPage", isSelfPage);
+
+		//CHANGE FOLLOWING TO FOLLOWINGSTATUS
+		model.addAttribute("followingStatus", isFollowing);
+
+		model.addAttribute("tweetList", tweets);
+		model.addAttribute("user", user);
+		return "user"; // HTML
+	}
 
 	private void SetTweetCounts(List<User> users, Model model) {
 
@@ -69,7 +70,6 @@ public class UserController {
 
 		model.addAttribute("tweetCounts", tweetCounts);
 
-		
 	}
 
 	private void SetFollowingStatus(List<User> users, List<User> usersFollowing, Model model) {
@@ -77,12 +77,12 @@ public class UserController {
 		String username = userService.getLoggedInUser().getUsername();
 
 		for (User user : users) {
-			if(usersFollowing.contains(user)) {
-					followingStatus.put(user.getUsername(), true);
-			}else if (!user.getUsername().equals(username)) {
-					followingStatus.put(user.getUsername(), false);
+			if (usersFollowing.contains(user)) {
+				followingStatus.put(user.getUsername(), true);
+			} else if (!user.getUsername().equals(username)) {
+				followingStatus.put(user.getUsername(), false);
 			}
 		}
-			model.addAttribute("followingStatus", followingStatus);
-		}
+		model.addAttribute("followingStatus", followingStatus);
 	}
+}
