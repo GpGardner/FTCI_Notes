@@ -16,17 +16,22 @@
       <h2>No Tweets here dawg!</h2>
     </div>
 
+
+    <!-- Styling for feed page fixed below -->
       <div th:replace="fragments/navbar"></div>
       <h2>Tweets</h2>
-      <div th:each="tweet:${tweetList}">
-        <h5>
-          @<span th:text="${tweet.user.username}"></span>
-          <small
-            ><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span
-          ></small>
-        </h5>
-        <p th:utext="${tweet.message}"></p>
+      <div class="list-group" th:each="tweet:${tweetList}">
+					<div class="list-group-item list-group-item-action">
+						<div class="d-flex w-100 justify-content-between">
+              <!-- Fixed styling and coloring for feed page -->
+								<h5 class="mb-1" style="color: #00aced"><i class="fab fa-twitter"></i> @<span th:text="${tweet.user.username}"></span> </span> <span style="color: black;" th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></h5>	
+						</div>
+							<p class="mb-1" th:utext="${tweet.message}"></p>
+					</div>
+				</div>
       </div>
     </div>
   </body>
 </html>
+
+
