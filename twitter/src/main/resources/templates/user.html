@@ -24,9 +24,17 @@
 			
 				<h2>Profile for <span th:text="${user.firstName}"></span> <span th:text="${user.lastName}"></span> - <span style="color: #00aced;">@</span><span th:text="${user.username}"></span></h2>
 
-				<h5>Joined </span></h5>
+        <h5>Joined </span></h5>
 
+        <!-- LOGIC TO ADD A FOLLOW BUTTON TO TO A SPECIFIC USERS PAGE -->
+        
+        <form th:action="@{/follow/} + ${user.username}" th:if="${!followingStatus && !isSelfPage}" method="post">
+          <button style="float:right" type="Submit" class="btn btn-md btn-success">Follow</button>
+        </form>
 
+        <form th:action="@{/unfollow/} + ${user.username}" th:if="${followingStatus && !isSelfPage}" method="post">
+          <button style="float:right" type="Submit" class="btn btn-md btn-primary unfollow_btn">Following</button>
+        </form>
 
 				<div th:if="${not #lists.isEmpty(tweetList)}">
 					<h3>Tweets</h3>
