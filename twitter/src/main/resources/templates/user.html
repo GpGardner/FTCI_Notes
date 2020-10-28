@@ -14,7 +14,8 @@
 			
 				<h2>Profile for <span th:text="${user.firstName}"></span> <span th:text="${user.lastName}"></span> - <span style="color: #00aced;">@</span><span th:text="${user.username}"></span></h2>
 
-        <h5>Joined </span></h5>
+        <!-- Adding back broken date -->
+        <h5>Joined <span th:text="${#dates.format(user.createdAt, 'MMMM dd, yyyy')}"></span></h5>
 
         <!-- LOGIC TO ADD A FOLLOW BUTTON TO TO A SPECIFIC USERS PAGE -->
         
