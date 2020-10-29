@@ -6,25 +6,35 @@
   <head>
     <title>Feed</title>
     <div th:replace="/fragments/headlinks :: head-styles"></div>
-
   </head>
   <body>
     <div class="container">
 
       <!-- If no tweets in tweetList from tweetcontroller -->
-    <div th:if="${#lists.isEmpty(tweetList)}">
-      <h2>No Tweets here dawg!</h2>
+    <div th:replace="fragments/navbar"></div>
+
+    <ul class="nav nav-tabs">
+      <li role="presentation" th:classappend="${filter == 'all' ? 'active' : '' }">
+          <a href="/tweets">All</a></li>
+      <li role="presentation" th:classappend="${filter == 'following' ? 'active' : '' }">
+          <a href="/tweets?filter=following">Following</a></li>
+    </ul><br/>
+
+
+    <div th:if="${#lists.isEmpty(tweetList) and filter == 'all'}">
+      <h3>No tweets have been created yet</h3>
+    </div>
+    <div th:if="${#lists.isEmpty(tweetList) and filter == 'following'}">
+      <h3>No tweets have been created by your followers</h3>
     </div>
 
 
     <!-- Styling for feed page fixed below -->
-      <div th:replace="fragments/navbar"></div>
-      <h2>Tweets</h2>
       <div class="list-group" th:each="tweet:${tweetList}">
 					<div class="list-group-item list-group-item-action">
 						<div class="d-flex w-100 justify-content-between">
               <!-- Fixed styling and coloring for feed page -->
-								<h5 class="mb-1" style="color: #00aced"><i class="fab fa-twitter"></i> @<span th:text="${tweet.user.username}"></span> </span> <span style="color: black;" th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></h5>	
+								<h5 class="mb-1" style="color: #00aced"><i class="fab fa-twitter"></i> @<span th:text="${tweet.user.username}"></span> <small style="color: black" th:text="${tweet.date}"></small></h5>	
 						</div>
 							<p class="mb-1" th:utext="${tweet.message}"></p>
 					</div>
