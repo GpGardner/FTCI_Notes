@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments :: head"></head>
+<head th:replace="fragments/fragment :: head"></head>
 
 <body>
 
-	<div th:replace="fragments :: navbar"></div>
+	<div th:replace="fragments/fragment :: navbar"></div>
 
 	<main role="main">
 
@@ -23,11 +23,12 @@
 
 		<div class="container">
 			<div class="row">
-				
+
 			</div>
 		</div>
 
 	</main>
 
+	<footer th:replace="fragments/fragment :: footer"></footer>
 </body>
 </html>
