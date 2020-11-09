@@ -1,11 +1,11 @@
-package com.tts.weatherapp.models;
+package com.tts.weatherapp.model;
 
 import java.util.List;
 import java.util.Map;
 
 public class Response {
-	
-	//fields, properties, instance variables
+
+	// fields, properties, instance variables
 
 	private Map<String, String> coord;
 	private List<Map<String, String>> weather;
@@ -19,9 +19,10 @@ public class Response {
 	private String name;
 	private String cod;
 
-	//Constructor
+	// Constructor
 
-	public Response(){}
+	public Response() {
+	}
 
 	public Map<String, String> getCoord() {
 		return coord;
@@ -117,7 +118,5 @@ public class Response {
 				+ ", id=" + id + ", main=" + main + ", name=" + name + ", sys=" + sys + ", weather=" + weather + ", wind="
 				+ wind + "]";
 	}
-
-	
 
 }
