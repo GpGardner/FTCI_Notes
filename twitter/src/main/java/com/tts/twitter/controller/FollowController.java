@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class FollowController {
+
+	int i[] = new int[1];
 	
 	@Autowired
 	private UserService userService;

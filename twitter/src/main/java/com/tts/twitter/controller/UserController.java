@@ -102,6 +102,7 @@ public class UserController {
 				followingStatus.put(user.getUsername(), false);
 			}
 		}
+
 		model.addAttribute("followingStatus", followingStatus);
 	}
 }

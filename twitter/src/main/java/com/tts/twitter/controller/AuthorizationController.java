@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class AuthorizationController {
+class AuthorizationController {
 	
 	@Autowired
 	private UserService userService;
