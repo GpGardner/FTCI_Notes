@@ -15,7 +15,7 @@ public class MapController {
 	@Autowired
 	MapService mapService;
 
-	@GetMapping("/home")
+	@GetMapping("/")
 	public String getDefaultMap(Model model) {
 
 		model.addAttribute(new Location());
@@ -32,14 +32,16 @@ public class MapController {
 		return "index";
 	}
 
-	// @PostMapping("/random")
-	// public String getRandomLocation(Model model){
+	@GetMapping("/random")
+	public String getRandomCity(Model model) {
 
-	// Location city = mapService.randomCity();
+		Location location = new Location();
 
-	// model.addAttribute(city);
+		mapService.getRandomLocation(location);
 
-	// return "index";
-	// }
+		model.addAttribute(location);
+
+		return "index";
+	}
 
 }
