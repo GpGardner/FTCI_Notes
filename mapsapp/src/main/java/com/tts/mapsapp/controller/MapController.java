@@ -37,7 +37,9 @@ public class MapController {
 
 		Location location = new Location();
 
-		mapService.getRandomLocation(location);
+		location = mapService.getRandomLocation(location);
+
+		mapService.addCoordinates(location);
 
 		model.addAttribute(location);
 
