@@ -26,8 +26,23 @@ public class MapService {
 
 	}
 
+	public void getRandomLocation(Location location) {
+		double minLat = 25.8419;
+    double maxLat = 36.5008;
+    double minLng = -106.6168;
+		double maxLng = -93.5074;
+
+		String randomLat = String.valueOf((double)(Math.random() * (maxLat - minLat) + minLat));
+		String randomLng = String.valueOf((double)(Math.random() * (maxLng - minLng) + minLng));
+
+		location.setLat(randomLat);
+		location.setLng(randomLng);
+		
+
+	}
+
 	// public Location randomCity() {
-	// 	return null;
+	// return null;
 	// }
 
 }
