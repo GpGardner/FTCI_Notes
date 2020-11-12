@@ -21,6 +21,7 @@ const makeCards = (result) => {
       user.firstName + " " + user.lastName + ": " + user.state
     );
     card.appendChild(cardHTML);
+    card.classList.add("card", "mt-5`");
     element.appendChild(card);
   });
 };
