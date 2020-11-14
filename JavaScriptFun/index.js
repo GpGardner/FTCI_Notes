@@ -14,6 +14,25 @@ const makeGetRequest = () => {
   );
 };
 
+const makePostRequest = () => {
+  const firstName = document.getElementById("formFirstName").value;
+  const lastName = document.getElementById("formLastName").value;
+  const state = document.getElementById("formState").value;
+
+  const userObj = {
+    firstName, lastName, state
+  }
+
+  axios.post(url + '/users', userObj)
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+  
+};
+
 //TESTING DATA, USED IF WORKING OFFLINE
 const testingCards = () => {
   let userData = [

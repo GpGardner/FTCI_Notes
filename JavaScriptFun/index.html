@@ -16,16 +16,49 @@
       crossorigin="anonymous"
     ></script>
     <script src="index.js"></script>
-    <title>Document</title>
+    <title>Cards page</title>
   </head>
-  <body>
+  <body style="background-color: #f8f8f8">
     <div class="container">
+      <form action="http://localhost:8080/users" method="post" class="mt-5">
+        <form>
+          <div class="form-group">
+            <label for="formFirstName">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="formFirstName"
+              name="firstName"
+            />
+          </div>
+          <div class="form-group">
+            <label for="formLastName">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="formLastName"
+              name="lastName"
+            />
+          </div>
+          <div class="form-group">
+            <label for="formState">State</label>
+            <input
+              type="text"
+              class="form-control"
+              id="formState"
+              name="state"
+            />
+          </div>
+          <div class="btn" onclick="makePostRequest()">Submit</div>
+        </form>
+      </form>
       <button class="btn btn-info" onclick="makeGetRequest()">
         Click me for user list
       </button>
       <button class="btn btn-info" onclick="testingCards()">
         Click me for fake user list
       </button>
+
       <div id="test"></div>
     </div>
   </body>
