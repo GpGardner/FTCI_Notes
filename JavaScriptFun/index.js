@@ -1,3 +1,5 @@
+//ARRAY LIST TO HOLD STATES THAT HAVE BEEN MADE ALREADY NEEDS TO HAVE FULL FILE SCOPE
+let listOfStatesAlreadyCreated = [];
 const url = "https://gentle-chamber-40438.herokuapp.com";
 
 //REQUEST TO API - API WE MADE IN CLASS
@@ -81,8 +83,6 @@ const testingCards = () => {
 const makeCards = (users) => {
   //GET REFERENCE TO ELEMENT IN HTML
   let element = document.getElementById("test");
-  //ARRAY LIST TO HOLD STATES THAT HAVE BEEN MADE ALREADY
-  let listOfStatesAlreadyCreated = [];
 
   //LOOP OVER USERS FROM ABOVE, EACH USER WILL BE ITERADED OVER
   users.forEach((user) => {
