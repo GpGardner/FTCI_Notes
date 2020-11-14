@@ -20,36 +20,58 @@ const makePostRequest = () => {
   const state = document.getElementById("formState").value;
 
   const userObj = {
-    firstName, lastName, state
-  }
+    firstName,
+    lastName,
+    state,
+  };
 
-  axios.post(url + '/users', userObj)
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-  
+  axios
+    .post(url + "/users", userObj)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 };
 
 //TESTING DATA, USED IF WORKING OFFLINE
 const testingCards = () => {
   let userData = [
     {
-      firstName: "George",
-      lastName: "Gardner",
+      firstName: "Bob",
+      lastName: "Builder",
       state: "North Carolina",
     },
     {
-      firstName: "Tia",
-      lastName: "Fischl",
+      firstName: "Clint",
+      lastName: "Arnolds",
       state: "North Carolina",
     },
     {
-      firstName: "Mela",
-      lastName: "Gardner",
+      firstName: "Blue",
+      lastName: "Steele",
       state: "Pennsylvania",
+    },
+    {
+      firstName: "Bull",
+      lastName: "Hampton",
+      state: "Ohio",
+    },
+    {
+      firstName: "Stacy",
+      lastName: "Hampton",
+      state: "California",
+    },
+    {
+      firstName: "Gwenifer",
+      lastName: "OrangeFelter",
+      state: "California",
+    },
+    {
+      firstName: "Bucky",
+      lastName: "Houstonston",
+      state: "California",
     },
   ];
   makeCards(userData);
