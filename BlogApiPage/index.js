@@ -56,13 +56,13 @@ function createBlogPostView(blogPosts) {
   blogPosts.forEach((blogPost) => {
     let cardBodyElement = document.createElement("div");
     cardBodyElement.innerHTML = `<div class="card mt-5" style="width: 18rem;">
-																	<img class="card-img-top" src="${blogPost.image}" alt="Card image cap">
-																	<div class="card-body">
-																		<h5 class="card-title">${blogPost.title}</h5>
-																		<p class="card-text">${blogPost.blogEntry}</p>
-																		<button class="btn btn-danager" onclick="deleteBlogPost(${blogPost.id})"/>
-																	</div>
-																</div>`;
+		<img class="card-img-top" src="${blogPost.image}" alt="Card image cap">
+		<div class="card-body">
+			<h5 class="card-title">${blogPost.title}</h5>
+			<p class="card-text">${blogPost.blogEntry}</p>
+			<button class="btn btn-danager" onclick="deleteBlogPost(${blogPost.id})"/>
+		</div>
+	</div>`;
 
     postsDiv.appendChild(cardBodyElement);
   });
