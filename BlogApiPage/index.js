@@ -13,9 +13,44 @@ function getAllBlogPosts() {
     });
 }
 
-function deleteBlogPost(){
-	
+function deleteBlogPost(id) {
+  console.log(id);
+
+  axios.delete(`${url}/${id}`).then(
+    (response) => {
+      console.log(response);
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
+
+  location.reload();
 }
+
+const makePostRequest = () => {
+  const image = document.getElementById("formImage").value;
+  const author = document.getElementById("formAuthor").value;
+  const title = document.getElementById("formTitle").value;
+  const blogEntry = document.getElementById("formBlogEntry").value;
+
+  const blogPost = {
+    image,
+    author,
+    title,
+    blogEntry,
+  };
+
+	console.log(blogPost)
+  axios
+    .post(url, blogPost)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+};
 
 function createBlogPostView(blogPosts) {
   blogPosts.forEach((blogPost) => {
@@ -39,6 +74,9 @@ function createBlogPostView(blogPosts) {
     blogEntryElement.classList.add("card-body");
     blogEntryElement.appendChild(blogEntry);
 
+    let deleteButtonElement = document.createElement("button");
+    deleteButtonElement.innerHTML = `<button class="btn btn-danager" onclick="deleteBlogPost(${blogPost.id})"/>`;
+
     let cardElement = document.createElement("div");
     cardElement.classList.add("card");
 
@@ -51,8 +89,11 @@ function createBlogPostView(blogPosts) {
 
     cardElement.appendChild(imgElement);
     cardElement.appendChild(cardBodyElement);
+    cardBodyElement.appendChild(deleteButtonElement);
     cardElement.classList.add("mt-5");
 
     postsDiv.appendChild(cardElement);
   });
 }
+
+getAllBlogPosts();
